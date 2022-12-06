@@ -52,10 +52,11 @@
 
   <div>
     <p>And this text is just for the exercise too!</p>
-    <h2 style="color: red">
+    <h2 style="color: red" id="footer">
       Save this page on your computer and open it with VSCode to get the
       questions!
     </h2>
+    <button id="btn2" onclick="changeFooterText()">Footer color</button>
   </div>
   <script>
     /* EXERCISE 1
@@ -103,7 +104,7 @@
 
     const changePcontent = function (newText) {
       //
-      let pNodes = document.getElementsByTagName('p')
+      let pNodes = document.querySelectorAll("div p")
       for (let index = 0; index < pNodes.length; index++) {
         let pNode = pNodes[index];
         pNode.innerText = newText
@@ -134,12 +135,16 @@
     const addToTheSecond = function (content) {
 
       let NewList = document.getElementById('secondList')
-      let liNode = document.createElement('li')
-      liNode.appendChild(document.createTextNode(content))
-      NewList.appendChild(liNode)
+      NewList.innerHTML += `<li>${content}</li>`
+
+      // let liNode = document.createElement('li')
+
+      // liNode.innerHTML = content
+      // liNode.appendChild(document.createTextNode(content))
+      // NewList.appendChild(liNode)
     };
 
-    // addToTheSecond("4 test")
+    addToTheSecond("4 test")
 
     /* EXERCISE 6
      Write a function for adding a second paragraph to the first div.
@@ -199,7 +204,8 @@
     */
 
     const changeFooterText = function () {
-      //
+      let footers = document.getElementById('footer')
+      footer.innerText = "Something else"
     };
 
     /* EXERCISE 11
@@ -209,12 +215,13 @@
     const inputField = document.getElementById("input-field");
     // ...
 
+
     /* EXERCISE 12
      Create a welcome alert message when the page successfully loads.
     */
 
     window.onload = function () {
-      //
+      alert("Welcome!")
     };
 
     /* EXERCISE 13
